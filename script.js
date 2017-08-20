@@ -189,10 +189,14 @@
 				$("#cardCount").text(":root { --widthCount: " + width + "; }");		//update the widthCount for cardSlot width and height
 
 				for (var card of pile) {											//generate a card slot with a card (front and back)
+					if ( (/(\.jpeg|\.png|\.jpg|\.gif|\.svg|\.tiff|\.img|\.bmp)$/gi).test(card.background) ) {
+						card.background = "url(" + card.background + ")"
+					}
+
 					gameboard += "<div class='card_slot' id='slot_" + slot + "'>" + 
 						"<div class='card' value='" + card.number + "'>"
 							+ "<div class='card_back'></div>"
-							+ "<div class='card_front hidden' style='background: " + card.background + ";'><div class='card_text'>" + card.text + "</div></div>"
+							+ "<div class='card_front hidden' style='background: " + card.background + "; background-repeat: no-repeat; background-size: cover;'><div class='card_text'>" + card.text + "</div></div>"
 						+ "</div>"
 					+ "</div>";
 
