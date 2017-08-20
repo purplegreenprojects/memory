@@ -1,0 +1,116 @@
+body {
+	font-family: Roboto Condensed;
+	text-shadow: 0px 0px 2px black;
+	font-size: 20px;
+}
+
+.form-control::-webkit-input-placeholder {
+	color: white;
+}
+.form-control::-moz-placeholder {
+	color: white;
+} 
+.form-control:-ms-input-placeholder {
+	color: white;
+} 
+.form-control:-moz-placeholder {
+	color: white;
+}
+
+#setup_div {
+	background-color:lightgray;
+	width: 75vw;
+	height:75vh;
+}
+
+
+/* PLAYERS */
+
+	#playerSection button {
+		width: 100%;
+	}
+
+	#player1 {
+		background-color: pink;
+		color:red;
+	}
+
+	#player2 {
+		background-color: lightblue;
+		color: blue;
+	}
+
+	#player3 {
+		background-color: magenta;
+		color: purple;
+	}
+
+/* CARDS */
+
+	#cardSection button {
+		width: 100%;
+	}
+
+	.setupCard {
+
+	}
+
+			.setupCard textarea {
+				min-height: 80%;
+				min-width: 100%;
+				max-width: 100%;
+				max-height: 80%;
+				background-color: rgba(255, 255, 255, 0.3);
+				color: white;
+				text-shadow: 0px 0px 2px black;
+				font-size: 18px;
+				
+			}
+
+			
+
+			.setupCard input {
+				background-color: rgba(255, 255, 255, 0.3);
+				color: white;
+				text-shadow: 0px 0px 2px black;
+				font-size: 18px;
+
+			}
+
+	.L {
+		width: 50%;
+		display: inline-block;
+		float: left;
+		margin: 5px;
+
+		border: 5px solid;
+		background-color: lightgray;
+		color: darkgray;
+		width: 25vw;
+		height: 25vw;
+		display: inline-block;
+		background-repeat: no-repeat;
+	}
+
+	.R {
+		width: 50%;
+		display: inline-block;
+		float: left;
+		margin: 5px;
+
+		border: 5px solid;
+		background-color: lightgray;
+		color: darkgray;
+		width: 25vw;
+		height: 25vw;
+		display: inline-block;
+		background-repeat: no-repeat;
+	}
+
+	#pair2 .L {
+
+	}
+
+	#pair3 {
+
+	}
