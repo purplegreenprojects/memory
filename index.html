@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>memory</title>
-	<link rel='shortcut icon' href='#'>
-	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:regular,bold;italic;bolditalic">
-	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="script.js"></script>
-</head>
-
-<body>
-	<div id='setup_div'>
-		<div id='playerSection'>players
-			<input type='text' id='player1' class='setupPlayer form-control' placeholder='player 1'></input>
-			<input type="text" name="" id='player2' class='setupPlayer form-control' placeholder='player 2'></input>
-			<button id='playerAdd' class='btn btn-md btn-success' onclick='playerAdd()'>+</button>
-		</div>
-<br>
-
-
-
-		<div id='cardSection'>
-			<header>cards</header>
+	<head>
+		<title>memory</title>
+		<link rel='shortcut icon' href='#'>
+		<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:regular,bold;italic;bolditalic">
+		<style id="cardCount">
+			:root {
+				--widthCount: 16;
+			}
+		</style>
+		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+	<body>
+		<div id="container">
+			<a id="info_button" href="#"><span class="glyphicon glyphicon-question-sign"></span></a>
 			
-			<!-- <div id='pair0' class='setupCard'>
-
-				<div class='L'>
-					<textarea class='form-control' placeholder='enter text'></textarea>
-					<input type='text' class='form-control' placeholder="background"></input>
-				</div>
-
-				<div class='R'>
-					<textarea class='form-control' placeholder='enter text'></textarea>
-					<input type='text' class='form-control' placeholder="background"></input>
-				</div>
-
+			<div id="menu">
+				<div id="menu_title">memory</div>
+				<button id="startGame" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-play"></span> play</button>
+				<button id="setupGame" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-cog"></span> setup</button>
 			</div>
- -->
-			<button id='cardAdd' class='btn btn-md btn-success' onclick='cardAdd()'>+</button>
+
+			<div id="players" class="hidden">
+				<div id="player_title">players</div>
+				<div id="player_list"></div>
+			</div>
+			
+			<div id="gameboard" class="hidden"></div>
+
+			<div id='setup_div' class="hidden">
+				<button id='submitSetup'>submit</button>
+				<div id='playerSection' class='btn btn-md btn-primary'>players
+					<input type='text' id='player1' class='setupPlayer form-control' placeholder='player 1' value="player 1"></input>
+					<input type="text" name="" id='player2' class='setupPlayer form-control' placeholder='player 2' value="player 2"></input>
+					<button id='playerAdd' class='btn btn-md btn-success' onclick='playerAdd()'>+</button>
+				</div>
+				
+				<br>
+
+				<div id='cardSection'>
+					<header>cards</header>
+					<!-- <div id='pair0' class='setupCard'>
+
+							<div class='L'>
+								<textarea class='form-control' placeholder='enter text'></textarea>
+								<input type='text' class='form-control' placeholder="background"></input>
+							</div>
+
+							<div class='R'>
+								<textarea class='form-control' placeholder='enter text'></textarea>
+								<input type='text' class='form-control' placeholder="background"></input>
+							</div>
+
+						</div> -->
+					<button id='cardAdd' class='btn btn-md btn-success' onclick='cardAdd()'>+</button>
+				</div>
+			</div>
 
 		</div>
-	</div>
-</body>
+	</body>
 </html>
