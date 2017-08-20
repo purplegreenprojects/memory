@@ -4,7 +4,10 @@
 			var playerNumber = $(".setupPlayer").toArray().length;
 			playerNumber = playerNumber + 1
 			console.log("button clicked")
-			$("<input type='text' name='' id='player" + playerNumber + "' class='setupPlayer form-control' placeholder='player " + playerNumber + "'></input>").insertBefore("#playerAdd")
+			$("<div class='playerList' style='background-color: black'>\
+					<input type='text' id='player" + playerNumber + "' class='setupPlayer form-control' placeholder='player " + playerNumber + "'></input>\
+					<button class='btn btn-md btn-danger playerRemove' onclick='playerRemove(this)'><span class='glyphicon glyphicon-remove'></span></button>\
+				</div>").insertBefore("#playerAdd")
 		}
 
 	/* cardAdd */
@@ -15,7 +18,28 @@
 
 			var cardpairsNumber = $(".setupCard").toArray().length;
 
-			$("<div id='pair" + cardpairsNumber + "' class='setupCard'><div class='L' style='background:" + background + "'><textarea class='form-control' placeholder='enter text'></textarea><input type='text' class='form-control backgroundChange' placeholder='background' value='" + background + "'></input></div><div class='R' style='background:" + background + "'><textarea class='form-control' placeholder='enter text'></textarea><input type='text' class='form-control backgroundChange' placeholder='background' value='" + background + "'></input></div></div>").insertBefore("#cardAdd")
+			$("<div id='pair" + cardpairsNumber + "' class='setupCard'>\
+					<div class='L' style='background:" + background + "'>\
+						<textarea class='form-control' placeholder='enter text'></textarea>\
+						<input type='text' class='form-control backgroundChange' placeholder='background' value='" + background + "'></input>\
+					</div>\
+					<div class='R' style='background:" + background + "'>\
+						<textarea class='form-control' placeholder='enter text'></textarea>\
+						<input type='text' class='form-control backgroundChange' placeholder='background' value='" + background + "'></input>\
+					</div>\
+					<button class='btn btn-md btn-danger cardRemove' onclick='cardRemove(this)'><span class='glyphicon glyphicon-remove'></span></button>\
+			</div>").insertBefore("#cardAdd")
+		}
+	/* playerRemove */
+		function playerRemove(button) {
+			console.log("remove player")
+			$(button).parent().remove()
+		}
+
+	/* cardRemove */
+		function cardRemove(button) {
+			console.log("remove card")
+			$(button).parent().remove()
 		}
 
 	$(document).ready(function() {
@@ -96,7 +120,13 @@
 				var pairs = $(".setupCard").toArray();								//get all the pairs of setupCards
 
 				for (pair of pairs) {												//for each pair
-					var number = Number($(pair).attr("id").replace(/pair/gi,""));	//get the number
+					
+					var set = "0123456789abcdefghijklmnopqrstuvwxyz";				//generate a random id
+					var number = "";
+					for (var i = 0; i < 16; i++) {
+						number += (set[Math.floor(Math.random() * set.length)]);
+					}
+					number = "_" + number;
 
 					var leftText = $(pair).find(".L").find("textarea").val();		//get the text of the left card
 					var rightText = $(pair).find(".R").find("textarea").val();		//get the text of the right card
@@ -162,7 +192,7 @@
 					gameboard += "<div class='card_slot' id='slot_" + slot + "'>" + 
 						"<div class='card' value='" + card.number + "'>"
 							+ "<div class='card_back'></div>"
-							+ "<div class='card_front hidden' style='background: " + card.background + ";'>" + card.text + "</div>"
+							+ "<div class='card_front hidden' style='background: " + card.background + ";'><div class='card_text'>" + card.text + "</div></div>"
 						+ "</div>"
 					+ "</div>";
 
@@ -201,9 +231,9 @@
 					$(card).find(".card_front").removeClass("hidden");
 				}
 				else {																//if there is 1 flipped...
-					var existingValue = Number($(".card_back.hidden").closest(".card").attr("value"));	//get the value of that one...
+					var existingValue = $(".card_back.hidden").closest(".card").attr("value");	//get the value of that one...
 					console.log(existingValue);
-					var thisValue = Number($(card).attr("value"));					//...and this one
+					var thisValue = $(card).attr("value");							//...and this one
 					console.log(thisValue);
 
 					$(card).find(".card_back").addClass("hidden");					//flip this card

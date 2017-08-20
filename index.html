@@ -20,6 +20,7 @@
 			
 			<div id="menu">
 				<div id="menu_title">memory</div>
+				<a id="attribution" href="https://www.github.com/eef22/memory" target="_blank">a game by Liz &amp; James</a>
 				<button id="startGame" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-play"></span> play</button>
 				<button id="setupGame" class="btn btn-lg btn-warning"><span class="glyphicon glyphicon-cog"></span> setup</button>
 			</div>
@@ -32,31 +33,28 @@
 			<div id="gameboard" class="hidden"></div>
 
 			<div id='setup_div' class="hidden">
-				<button id='submitSetup'>submit</button>
-				<div id='playerSection' class='btn btn-md btn-primary'>players
-					<input type='text' id='player1' class='setupPlayer form-control' placeholder='player 1' value="player 1"></input>
-					<input type="text" name="" id='player2' class='setupPlayer form-control' placeholder='player 2' value="player 2"></input>
-					<button id='playerAdd' class='btn btn-md btn-success' onclick='playerAdd()'>+</button>
+				<header>
+					set up
+					<button id='submitSetup' class='btn btn-md btn-primary'><span class="glyphicon glyphicon-ok"></span></button>
+				</header>
+				<div id='playerSection'>
+					<header>players</header>
+					<div class='playerList'>
+						<input type='text' id='player1' class='setupPlayer form-control' placeholder='player 1' value="player 1"></input>
+						<button class='btn btn-md btn-danger playerRemove' onclick='playerRemove(this)'><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
+					<div class='playerList'>
+						<input type="text" name="" id='player2' class='setupPlayer form-control' placeholder='player 2' value="player 2"></input>
+						<button class='btn btn-md btn-danger playerRemove' onclick='playerRemove(this)'><span class="glyphicon glyphicon-remove"></span></button>
+					</div>
+						<button id='playerAdd' class='btn btn-md btn-success' onclick='playerAdd()'><span class="glyphicon glyphicon-plus"></span></button>
 				</div>
 				
 				<br>
 
 				<div id='cardSection'>
 					<header>cards</header>
-					<!-- <div id='pair0' class='setupCard'>
-
-							<div class='L'>
-								<textarea class='form-control' placeholder='enter text'></textarea>
-								<input type='text' class='form-control' placeholder="background"></input>
-							</div>
-
-							<div class='R'>
-								<textarea class='form-control' placeholder='enter text'></textarea>
-								<input type='text' class='form-control' placeholder="background"></input>
-							</div>
-
-						</div> -->
-					<button id='cardAdd' class='btn btn-md btn-success' onclick='cardAdd()'>+</button>
+					<button id='cardAdd' class='btn btn-md btn-success' onclick='cardAdd()'><span class="glyphicon glyphicon-plus"></span></button>
 				</div>
 			</div>
 

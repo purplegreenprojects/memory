@@ -12,13 +12,12 @@
 		font-size: 20px;
 	}
 
-	#info_button {
-		position: absolute;
-		top: 10px;
-		right: 10px;
-		font-size: 36px;
-		z-index: 3;
-		display: none;
+	#attribution {
+		display: block;
+		font-size: 15px;
+		text-decoration: none;
+		text-shadow: none;
+		font-weight: bold;
 	}
 
 /* menu */
@@ -77,6 +76,8 @@
 	.active {
 		font-weight: bold;
 		text-shadow: 0px 0px 5px white;
+		background-color: darkgray;
+		border-radius: 5px;
 	}
 
 /* gameboard */
@@ -116,6 +117,16 @@
 		z-index: 1;
 	}
 
+	.card_text {
+		text-align: center;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		color: white;
+		text-shadow: 0px 0px 2px black;
+		font-size: 20px;
+	}
+
 	.card_back {
 		background-color: #333333;
 		cursor: pointer;
@@ -133,9 +144,35 @@
 /* setup */
 	#setup_div {
 		background-color:lightgray;
-		width: 75vw;
-		height:75vh;
+		width: 100vw;
+		height: 100vh;
 		overflow: scroll;
+	}
+
+	header {
+		background-color: gray;
+		width: 100vw;
+		text-align: center;
+		font-size: 30px;
+		height: auto;
+		margin-bottom: 10px;
+		text-align: center;
+		color: black;
+	}
+
+	#setup_div > header {
+		background-color: black;
+		color: white;
+		font-weight: bold;
+		font-size: 40px;
+		position: fixed;
+		top: 0px;
+		z-index: 2;
+	}
+
+	#submitSetup {
+		width: 10vw;
+		height: auto;
 	}
 
 	.form-control::-webkit-input-placeholder {
@@ -155,11 +192,30 @@
 	}
 
 /* setup players */
-	#playerSection button {
+	#playerSection {
+		margin-top: 57px;
+	}
+
+	#playerAdd {
+		margin-top: 5px;
+		margin-bottom: 5px;
 		width: 100%;
 	}
 
-	#player1 {
+	input.setupPlayer {
+		width: 90%;
+		display: inline-block;
+		float:left;
+		background-color:darkgray;
+	}
+
+	button.playerRemove {
+		width: 10%;
+		display:inline-block;
+		float: left;
+	}
+
+	/*#player1 {
 		background-color: pink;
 		color:red;
 	}
@@ -170,13 +226,26 @@
 	}
 
 	#player3 {
-		background-color: magenta;
-		color: purple;
+		background-color: lightgreen;
+		color: green;
 	}
 
+	#player4 {
+		background-color: plum;
+		color: rebeccapurple;
+	}*/
+
 /* setup cards */
-	#cardSection button {
+	#cardAdd {
 		width: 100%;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	.setupCard {
+		width: 100%;
+		height: 25vw;
+		overflow: hidden;
 	}
 
 	.setupCard textarea {
@@ -187,7 +256,8 @@
 		background-color: rgba(255, 255, 255, 0.3);
 		color: white;
 		text-shadow: 0px 0px 2px black;
-		font-size: 18px;		
+		font-size: 18px;
+		text-align: center;		
 	}
 
 	.setupCard input {
@@ -198,13 +268,18 @@
 	}
 
 	.L {
-		width: 50%;
 		display: inline-block;
 		float: left;
 		margin: 5px;
+		color: darkgray;
+		width: 25vw;
+		height: 25vw;
+		background-repeat: no-repeat;
+	}
 
-		border: 5px solid;
-		background-color: lightgray;
+	.R {
+		float: left;
+		margin: 5px;
 		color: darkgray;
 		width: 25vw;
 		height: 25vw;
@@ -212,17 +287,10 @@
 		background-repeat: no-repeat;
 	}
 
-	.R {
-		width: 50%;
+	.cardRemove {
+		width: 10%;
+		float: right;
 		display: inline-block;
-		float: left;
-		margin: 5px;
-
-		border: 5px solid;
-		background-color: lightgray;
-		color: darkgray;
-		width: 25vw;
-		height: 25vw;
-		display: inline-block;
-		background-repeat: no-repeat;
+		height: 10vw;
+		margin-top: 7.5vw;
 	}
