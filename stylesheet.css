@@ -60,7 +60,7 @@
 	}
 
 	#player_list {
-		overflow: scroll;
+		overflow: auto;
 	}
 
 	.player {
@@ -89,7 +89,7 @@
 		float: left;
 		padding: 0px;
 		margin: 0px;
-		overflow: scroll;
+		overflow: auto;
 	}
 
 	.card_slot {
@@ -146,7 +146,7 @@
 		background-color:lightgray;
 		width: 100vw;
 		height: 100vh;
-		overflow: scroll;
+		overflow: auto;
 	}
 
 	header {
