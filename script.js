@@ -168,15 +168,15 @@
 				}
 
 				pile.sort(function(a,b) {											//shuffle the cards a few times
-					return (Math.floor(Math.random() * 2) == 0);
+					return (Math.floor(Math.random() * 2) - 1);
 				});
 
 				pile.sort(function(a,b) {
-					return (Math.floor(Math.random() * 2) == 0);
+					return (Math.floor(Math.random() * 2) - 1);
 				});
 
 				pile.sort(function(a,b) {
-					return (Math.floor(Math.random() * 2) == 0);
+					return (Math.floor(Math.random() * 2) - 1);
 				});
 
 			//get game dimensions
